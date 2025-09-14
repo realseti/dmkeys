@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DM Keys - Darya Mai, Realtor, El Paso TX</title>
+  <meta name="description" content="Your concise, mobile-optimized business card website." />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    :root{
+      --bg: #0b0c0f;
+      --fg: #e9eef3;
+      --muted: #a9b3bd;
+      --accent: #4da3ff;
+      --btn-fg: #0b0c0f;
+      --card: #12141a;
+      --ring: #5db3ff55;
+      --maxw: 72rem;
+      --pad: clamp(16px, 4vw, 32px);
+      --radius: 16px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f9fb; --fg:#0c0f12; --muted:#66707a;
+        --card:#ffffff; --btn-fg:#ffffff; --accent:#2563eb; --ring:#2563eb33;
+      }
+    }
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body{
+      margin:0;
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color: var(--fg);
+      background: ;
+      display:flex; min-height:100svh; flex-direction:column;
+    }
+    .wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:10px var(--pad); }
+    header{
+      padding: var(--pad) 0;
+    }
+.socials {
+  display: flex;
+  gap: 24px;              /* adjust spacing between icons */
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;      /* gives space from top of page */
+}
+
+.socials img {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+    main{ flex:1; display:grid; place-items:center; padding: calc(var(--pad) * 2) 0 }
+    .hero{
+      text-align:center; display:grid; gap: clamp(40px, 3vw, 28px);
+      justify-items:center;
+    }
+    .logo{
+      width:min(600px, 90vw); height:auto; display:block;
+    }
+    .cta{
+      display:inline-block; font-weight:700; letter-spacing:.2px;
+      padding: 14px 22px; border-radius: 3px; text-decoration:none;
+      background: #000000; color: var(--btn-fg);
+      box-shadow: 0 10px 24px #00000055;
+      transition: transform .1s ease, filter .2s ease, box-shadow .2s ease;
+      border: 0;
+	  color: #FFF;
+    }
+    .cta:focus-visible{ outline: 3px solid var(--ring); outline-offset: 2px }
+    .cta:hover{ transform: translateY(-1px) scale(1.01); filter: brightness(1.05) }
+    .cta:active{ transform: translateY(0) scale(.99) }
+
+    footer{
+      margin-top:40px; border-top: 1px solid #ffffff0f; background: #000;
+    }
+    .footer-inner{
+      display:grid; grid-template-columns: 1fr auto; gap: 24px; align-items:center;
+      padding: var(--pad) 0;
+    }
+    .foot-left{ display:grid; gap:.25rem; color: var(--muted); font-size: .95rem }
+    .foot-left p{ margin:0 }
+    .foot-logo{ width:120px; max-width:25vw; filter: drop-shadow(0 4px 14px #00000055) }
+	.foot-link {
+  color: inherit;              /* same color as text */
+  text-decoration: none;       /* no underline by default */
+}
+.foot-link:hover,
+.foot-link:focus {
+  text-decoration: underline;  /* show underline on hover/focus */
+}
+    @media (max-width: 640px){
+      .footer-inner{ grid-template-columns: 1fr; justify-items:center; text-align:center }
+      .foot-logo{ order:-1 }
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{ transition: none !important; animation: none !important }
+    }
+    /* Optional helper to ensure the footer “falls off” just below short viewports */
+    .spacer{ height:1px } /* tweak if you want a tiny scroll past the fold */
+  </style>
+</head>
+<body>
+  <header class="wrap">
+
+<nav class="socials" aria-label="Social links">
+  <a href="https://www.instagram.com/dmrealtor/" aria-label="Instagram" title="Instagram" target="_blank">
+    <img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/66b01396963fc_2.png" alt="Instagram" width="32" height="32">
+  </a>
+  <a href="https://www.facebook.com/profile.php?id=61556460428873" aria-label="WhatsApp" title="WhatsApp"target="_blank">
+    <img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/66b013d9e5d46_1.png" alt="WhatsApp" width="32" height="32">
+  </a>
+  <a href="https://www.linkedin.com/in/darya-mai-257b61b1/" aria-label="LinkedIn" title="LinkedIn" target="_blank">
+    <img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/66b0141e05939_3.png" alt="LinkedIn" width="32" height="32">
+  </a>
+  <a href="https://www.tiktok.com/@dmrealtor" aria-label="TikTok" title="TikTok" target="_blank">
+    <img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/68c61924890fc_ttbutton.jpg" alt="TikTok" width="32" height="32">
+  </a>
+</nav>
+
+
+
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="brand">
+      <!-- Replace with your logo file -->
+      <img class="logo" src="https://d1yei2z3i6k35z.cloudfront.net/8309559/6673877625021_WEBSITE.png" alt="Darya Mai Realtor - El Paso TX" />
+      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdtx0dAqwexP_XKfRMpY_9A_j2IPW_LP-YfI7u_praEESP5ew/viewform" role="button" aria-describedby="start-desc">START HERE</a>
+      <span id="start-desc" class="sr-only" hidden></span>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="foot-left">
+        <p>LEGAL</p>
+  <p><a href="https://www.trec.texas.gov/sites/default/files/pdf-forms/IABS%201-0.pdf" class="foot-link" target="_blank">TREC Information About Brokerage Services</a></p>
+  <p><a href="https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-4-1_1.pdf" class="foot-link" target="_blank">Consumer Protection Notice</a></p>
+      </div>
+      <!-- Reuse your logo or a simplified mark -->
+      <a href="https://www.goldenrealestateep.com/" target="_blank"><img class="foot-logo" src="https://d1yei2z3i6k35z.cloudfront.net/8309559/66aff9e645f1c_LOGOWHITEGOLDENRE.png" alt="Your Brand" /></a>
+    </div>
+    <div class="spacer" aria-hidden="true"></div>
+  </footer>
+
+  <script>
+    // Keep the year current without dependencies
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
