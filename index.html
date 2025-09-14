@@ -25,23 +25,33 @@
       --radius: 16px;
     }
 
+    /* NEW: prevent padding from causing overflow, and block horizontal scroll */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { overflow-x: hidden; }
+
     body{
       margin:0;
       font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       color:var(--fg);
       background:var(--bg);
       display:flex; min-height:100svh; flex-direction:column;
+      word-break: break-word; /* safety for long strings */
     }
 
     .wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:10px var(--pad); }
     header{ padding: var(--pad) 0; }
 
     nav.socials{ display:flex; gap:24px; justify-content:center; align-items:center; padding-top:2rem }
-    nav.socials img{ display:block; width:32px; height:32px }
+    nav.socials img{ display:block; width:32px; height:32px; }
 
     main{ flex:1; display:grid; place-items:center; padding: calc(var(--pad) * 2) 0 }
     .hero{ text-align:center; display:grid; gap: clamp(28px, 3vw, 40px); justify-items:center }
-    .logo{ width:min(600px, 90vw); height:auto; display:block; }
+
+    /* CHANGED: keep logo within container width on mobile */
+    .logo{ width:min(100%, 600px); max-width:100%; height:auto; display:block; }
+
+    /* Ensure any image never exceeds its container */
+    img{ max-width:100%; height:auto; display:block; }
 
     .cta{
       display:inline-block; font-weight:700; letter-spacing:.2px; text-transform:uppercase;
@@ -54,7 +64,8 @@
 
     footer{ margin-top:40px; border-top:1px solid #ffffff0f; background:#000; color:#e9eef3; }
     .footer-inner{
-      display:grid; grid-template-columns: auto 1fr; gap:24px; align-items:start;
+      /* CHANGED: prevent grid from expanding wider than viewport */
+      display:grid; grid-template-columns: auto minmax(0,1fr); gap:24px; align-items:start;
       padding: var(--pad) 0;
     }
     .foot-logo{ width:120px; max-width:25vw; filter: drop-shadow(0 4px 14px #00000055) }
@@ -72,29 +83,37 @@
 <body>
   <header class="wrap">
     <nav class="socials" aria-label="Social links">
-      <a href="https://www.instagram.com/dmrealtor/" target="_blank"><img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/66b01396963fc_2.png" alt="Instagram"></a>
-      <a href="https://www.facebook.com/profile.php?id=61556460428873" target="_blank"><img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/66b013d9e5d46_1.png" alt="Facebook"></a>
-      <a href="https://www.linkedin.com/in/darya-mai-257b61b1/" target="_blank"><img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/66b0141e05939_3.png" alt="LinkedIn"></a>
-      <a href="https://www.tiktok.com/@dmrealtor" target="_blank"><img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/68c61924890fc_ttbutton.jpg" alt="TikTok"></a>
+      <a href="https://www.instagram.com/dmrealtor/" target="_blank" rel="noopener">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/66b01396963fc_2.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61556460428873" target="_blank" rel="noopener">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/66b013d9e5d46_1.png" alt="Facebook">
+      </a>
+      <a href="https://www.linkedin.com/in/darya-mai-257b61b1/" target="_blank" rel="noopener">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/66b0141e05939_3.png" alt="LinkedIn">
+      </a>
+      <a href="https://www.tiktok.com/@dmrealtor" target="_blank" rel="noopener">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/8309559/68c61924890fc_ttbutton.jpg" alt="TikTok">
+      </a>
     </nav>
   </header>
 
   <main class="wrap">
     <section class="hero">
       <img class="logo" src="https://d1yei2z3i6k35z.cloudfront.net/8309559/6673877625021_WEBSITE.png" alt="Darya Mai Realtor — El Paso TX">
-      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdtx0dAqwexP_XKfRMpY_9A_j2IPW_LP-YfI7u_praEESP5ew/viewform" target="_blank">Start Here</a>
+      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdtx0dAqwexP_XKfRMpY_9A_j2IPW_LP-YfI7u_praEESP5ew/viewform" target="_blank" rel="noopener">Start Here</a>
     </section>
   </main>
 
   <footer>
     <div class="wrap footer-inner">
-      <a href="https://www.goldenrealestateep.com/" target="_blank">
+      <a href="https://www.goldenrealestateep.com/" target="_blank" rel="noopener">
         <img class="foot-logo" src="https://d1yei2z3i6k35z.cloudfront.net/8309559/66aff9e645f1c_LOGOWHITEGOLDENRE.png" alt="Golden Real Estate">
       </a>
       <div class="foot-right">
         <p><strong>LEGAL</strong></p>
-        <p><a href="https://www.trec.texas.gov/sites/default/files/pdf-forms/IABS%201-0.pdf" class="foot-link" target="_blank">TREC Information About Brokerage Services</a></p>
-        <p><a href="https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-4-1_1.pdf" class="foot-link" target="_blank">Consumer Protection Notice</a></p>
+        <p><a href="https://www.trec.texas.gov/sites/default/files/pdf-forms/IABS%201-0.pdf" class="foot-link" target="_blank" rel="noopener">TREC Information About Brokerage Services</a></p>
+        <p><a href="https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-4-1_1.pdf" class="foot-link" target="_blank" rel="noopener">Consumer Protection Notice</a></p>
       </div>
     </div>
   </footer>
